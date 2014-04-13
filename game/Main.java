@@ -16,9 +16,9 @@ public class Main extends JFrame{
 		super("Snake Game w/ Trivia");
 		this.setLayout(new BorderLayout());
 		setSize(Util.MAP_SIZE*Util.TILE_SIZE + 8 + 300, Util.MAP_SIZE*Util.TILE_SIZE + 26);
-		add(Util.tiles);
+		add(Util.TILES);
 		setLocationRelativeTo(null);
-		add(Util.board, BorderLayout.WEST);
+		add(Util.BOARD, BorderLayout.WEST);
 	}
 	/**
 	 * Creates new instance of Main, starts the timer
@@ -28,7 +28,7 @@ public class Main extends JFrame{
 		m.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		m.addKeyListener(new SnakeKeys());
 		m.setVisible(true);
-		new java.util.Timer().schedule(new TheTask(Util.tiles), 1000, 70);
+		new java.util.Timer().schedule(new TheTask(Util.TILES), 1000, 70);
 	}
 }
 
@@ -51,7 +51,7 @@ class TheTask extends TimerTask {
 			Tiles.label.setText("");
 			tiles.redraw();
 		} else {
-			Util.tiles.drawTime((int)((System.currentTimeMillis() - Util.startDelay)/1000));
+			Util.TILES.drawTime((int)((System.currentTimeMillis() - Util.startDelay)/1000));
 		}
 	}
 }

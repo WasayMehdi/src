@@ -10,11 +10,14 @@ public class ScoreBoard extends JPanel {
 	/**
 	 * Create only ScoreBoard instance
 	 */
-	//private static ScoreBoard scoreBoard = new ScoreBoard();
+	private static ScoreBoard scoreBoard = new ScoreBoard();
 
 	/**
 	 * Labels, names are self explanitory
 	 */
+	public static final ScoreBoard getInstance() {
+		return scoreBoard;
+	}
 	private JLabel label;
 	private JLabel question;
 	private JLabel choices[];

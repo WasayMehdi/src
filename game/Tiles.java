@@ -11,12 +11,15 @@ public class Tiles extends JPanel {
 	public final static int tileSize = Util.TILE_SIZE * Util.MAP_SIZE;
 	public static TileColor[] tiles = new TileColor[tileSize];
 	public static JLabel label;
-	//private static Tiles tile = new Tiles();
+	private static Tiles tile = new Tiles();
 	public static final int TEST = 1241;
 	public static int timeUntilRestart;
 	/**
 	 * Instantiates variables, calls required methods to start a new game
 	 */
+	public static final Tiles getInstance() {
+		return tile;
+	}
 	public Tiles() {
 		super();
 		setPreferredSize(new Dimension(Util.MAP_SIZE*Util.TILE_SIZE + 8, Util.MAP_SIZE*Util.TILE_SIZE + 26));

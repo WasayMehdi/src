@@ -13,7 +13,7 @@ public class Util{
 	public static int MAP_SIZE = 25;
 	public static int TILE_SIZE = 25;
 	public static int FULL_SIZE = MAP_SIZE * TILE_SIZE;
-	public static Tiles tiles = new Tiles();
+	public static final Tiles TILES = Tiles.getInstance();
 	public static Snake snake = new Snake();
 	public static boolean gameAwaitingStart;
 	public static boolean gameOver;
@@ -21,7 +21,7 @@ public class Util{
 	public static long startDelay = 0L;
 	public static Graphics graphics;
 	public static final int GAME_BREAK = 10;
-	public static ScoreBoard board = new ScoreBoard();
+	public static final ScoreBoard BOARD = ScoreBoard.getInstance();
 	public static int rightChoice;
 	public static long skipStart;
 	public static boolean paused;

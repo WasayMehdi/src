@@ -49,15 +49,15 @@ public class Snake {
 			return;
 		}
 		Point last = snakePoints.getLast();
-		Util.tiles.changeTile(last.x, last.y, TileColor.SPACE);
-		TileColor color = Util.tiles.getTileColor(newTile.x, newTile.y);
+		Util.TILES.changeTile(last.x, last.y, TileColor.SPACE);
+		TileColor color = Util.TILES.getTileColor(newTile.x, newTile.y);
 		if(color == TileColor.ORANGE || color == TileColor.KIWI || color == TileColor.BANANA) {
-			Util.tiles.resetFruit();
+			Util.TILES.resetFruit();
 			if((Util.rightChoice == 0 && color == TileColor.ORANGE)
 					|| (Util.rightChoice == 1 && color == TileColor.KIWI)
 					|| (Util.rightChoice == 2 && color == TileColor.BANANA)) {
 				Snake.setPoints(1 + Snake.getPoints());
-				Util.board.repaint();
+				Util.BOARD.repaint();
 				switch(direction) {
 				case Util.NORTH:
 					snakePoints.add(new Point(last.x, --last.y));
@@ -75,9 +75,9 @@ public class Snake {
 			} else {
 				removeAnother = true;
 			}
-			Util.board.resetQuestions();
-			Util.board.addQuestions();
-			Util.tiles.spawnFruit();
+			Util.BOARD.resetQuestions();
+			Util.BOARD.addQuestions();
+			Util.TILES.spawnFruit();
 			
 		}
 		if(color == TileColor.SLOWMOTION) {
@@ -87,7 +87,7 @@ public class Snake {
 		last = snakePoints.removeLast();
 		if(removeAnother) {
 			Point d = snakePoints.getLast();
-			Util.tiles.changeTile(d.x, d.y, TileColor.SPACE);
+			Util.TILES.changeTile(d.x, d.y, TileColor.SPACE);
 			d = snakePoints.removeLast();
 			removeAnother = false;
 		}
@@ -95,7 +95,7 @@ public class Snake {
 		System.out.println("Amount: "+snakePoints.size());
 		for(int j = 0; j < snakePoints.size(); j++) {
 			if(!snakePoints.get(j).toString().equalsIgnoreCase(last.toString()));
-				Util.tiles.changeTile(snakePoints.get(j).x, snakePoints.get(j).y, TileColor.SNAKE);
+				Util.TILES.changeTile(snakePoints.get(j).x, snakePoints.get(j).y, TileColor.SNAKE);
 				System.out.println("Index: " + j + " Point: ("+snakePoints.get(j).x+", "+snakePoints.get(j).y+")");
 		}
 		
